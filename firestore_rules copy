@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Définition des rôles spéciaux
+    function isSpecialUser() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ["Admin", "Developpeur", "Patron"];
+    }
+    
+
+    // Règles pour la collection "users"
+    match /users/{userId} {
+
+      // Tous les utilisateurs authentifiés peuvent lire les documents utilisateurs
+      allow get, list: if request.auth != null;
+
+      // Un utilisateur authentifié peut créer ou mettre à jour son propre document
+      allow create, update: if request.auth != null && request.auth.uid == userId;
+
+      // Les utilisateurs spéciaux peuvent modifier tous les documents utilisateurs
+      allow update: if request.auth != null && isSpecialUser();
+    }
+
+
+    // Ajoutez ici d'autres règles pour d'autres collections si besoin
+  }
+}

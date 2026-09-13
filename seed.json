@@ -1,0 +1,168 @@
+{
+  "users": {
+    "user-abc": {
+      "email": "patrick@example.com",
+      "displayName": "Patrick Blaise",
+      "orgIds": ["org-123"],
+      "rolesByOrg": { "org-123": "owner" }
+    }
+  },
+  "orgs": {
+    "org-123": {
+      "name": "Patrick Blaise",
+      "type": "owner",
+      "billingPlan": "pro",
+      "createdAt": "2025-09-17T10:00:00Z",
+      "members": {
+        "user-abc": {
+          "role": "owner",
+          "joinedAt": "2025-09-17T10:00:00Z"
+        }
+      },
+      "properties": {
+        "prop-1": {
+          "name": "Appartement Centre Bruxelles",
+          "address": {
+            "line1": "Rue de la Loi 123",
+            "postalCode": "1000",
+            "city": "Bruxelles",
+            "country": "BE"
+          },
+          "pebCertificateId": "PEB-2025-001"
+        }
+      },
+      "leases": {
+        "lease-1": {
+          "propertyId": "prop-1",
+          "status": "active",
+          "startDate": "2025-01-01T00:00:00Z",
+          "endDate": "2026-12-31T00:00:00Z",
+          "myRentRegistrationId": "MYRENT-123456",
+          "tenantPrimaryId": "tenant-1",
+          "tenants": {
+            "tenant-1": {
+              "role": "primary",
+              "contact": {
+                "name": "Jean Dupont",
+                "email": "jean.dupont@example.com",
+                "iban": "BE71096123456769"
+              },
+              "startDate": "2025-01-01T00:00:00Z"
+            },
+            "tenant-2": {
+              "role": "co-tenant",
+              "contact": {
+                "name": "Marie Dubois",
+                "email": "marie.dubois@example.com"
+              },
+              "startDate": "2025-01-01T00:00:00Z"
+            }
+          }
+        }
+      },
+      "expenses": {
+        "exp-1": {
+          "propertyId": "prop-1",
+          "vendorCounterpartyId": "counter-1",
+          "capex": true,
+          "category": "Chaudière",
+          "meta": { "description": "Nouvelle chaudière condensation" }
+        }
+      },
+      "loans": {
+        "loan-1": {
+          "propertyId": "prop-1",
+          "lenderCounterpartyId": "bank-1",
+          "meta": { "bank": "ING Belgique", "rate": 0.025 }
+        }
+      },
+      "flows": {
+        "flow-lease1-master-rent": {
+          "parentType": "lease",
+          "parentId": "lease-1",
+          "kind": "master",
+          "groupId": "LOYER",
+          "rule": {
+            "template": "fixed",
+            "frequency": "monthly",
+            "day": 5,
+            "startDate": "2025-01-01T00:00:00Z"
+          },
+          "direction": "in",
+          "currency": "EUR",
+          "amountExpected": 950,
+          "tags": ["rent"]
+        },
+        "flow-lease1-rent-202509": {
+          "parentType": "lease",
+          "parentId": "lease-1",
+          "kind": "scheduled",
+          "masterId": "flow-lease1-master-rent",
+          "dueDate": "2025-09-05T00:00:00Z",
+          "period": { "y": 2025, "m": 9 },
+          "direction": "in",
+          "currency": "EUR",
+          "amountExpected": 950,
+          "allocatedAmount": 700,
+          "remainingAmount": 250,
+          "status": "partially_paid",
+          "tags": ["rent"]
+        },
+        "flow-exp1-capex-202509": {
+          "parentType": "expense",
+          "parentId": "exp-1",
+          "kind": "scheduled",
+          "dueDate": "2025-09-30T00:00:00Z",
+          "period": { "y": 2025, "m": 9 },
+          "direction": "out",
+          "currency": "EUR",
+          "amountExpected": 100,
+          "status": "scheduled",
+          "tags": ["capex", "chaudiere"]
+        },
+        "flow-loan1-202509": {
+          "parentType": "loan",
+          "parentId": "loan-1",
+          "kind": "scheduled",
+          "dueDate": "2025-09-10T00:00:00Z",
+          "period": { "y": 2025, "m": 9 },
+          "direction": "out",
+          "currency": "EUR",
+          "amountExpected": 750,
+          "status": "scheduled",
+          "tags": ["loan", "interest+capital"]
+        }
+      },
+      "payments": {
+        "pay-1": {
+          "bankRef": "BNK-TX-20250906-001",
+          "date": "2025-09-06T00:00:00Z",
+          "amount": 700,
+          "currency": "EUR",
+          "direction": "in",
+          "counterpartyName": "Jean Dupont",
+          "counterpartyIban": "BE71096123456769",
+          "allocations": {
+            "alloc-1": {
+              "flowId": "flow-lease1-rent-202509",
+              "amount": 700,
+              "createdAt": "2025-09-06T10:00:00Z"
+            }
+          }
+        }
+      },
+      "counterparties": {
+        "counter-1": {
+          "type": "supplier",
+          "name": "Chauffage SPRL",
+          "iban": "BE12000123456789"
+        },
+        "bank-1": {
+          "type": "bank",
+          "name": "ING Belgique",
+          "iban": "BE26001324681011"
+        }
+      }
+    }
+  }
+}

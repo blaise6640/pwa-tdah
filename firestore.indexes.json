@@ -1,0 +1,177 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "payments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "leaseId", "order": "ASCENDING" },
+        { "fieldPath": "date", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "payments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "parentId", "order": "ASCENDING" },
+        { "fieldPath": "parentType", "order": "ASCENDING" },
+        { "fieldPath": "date", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "parentId", "order": "ASCENDING" },
+        { "fieldPath": "parentType", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows", 
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "parentId", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "direction", "order": "ASCENDING" },
+        { "fieldPath": "parentType", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "propertyId", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "propertyId", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "parentType", "order": "ASCENDING" },
+        { "fieldPath": "propertyId", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "parentId", "order": "ASCENDING" },
+        { "fieldPath": "parentType", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "leases",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "propertyId", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "parentId", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "parentId", "order": "ASCENDING" },
+        { "fieldPath": "tags", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "scheduledFlows",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "propertyId", "order": "ASCENDING" },
+        { "fieldPath": "dueDate", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "allocations",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "flowId", "order": "ASCENDING" },
+        { "fieldPath": "orgId", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "allocations",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "orgId", "order": "ASCENDING" },
+        { "fieldPath": "parentId", "order": "ASCENDING" }
+      ]
+    }
+    ,
+    {
+      "collectionGroup": "tasks",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "seriesId", "order": "ASCENDING" },
+        { "fieldPath": "dueAt", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "scheduledFlows",
+      "fieldPath": "orgId",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "DESCENDING", "queryScope": "COLLECTION" },
+        { "arrayConfig": "CONTAINS", "queryScope": "COLLECTION" },
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" },
+        { "order": "DESCENDING", "queryScope": "COLLECTION_GROUP" },
+        { "arrayConfig": "CONTAINS", "queryScope": "COLLECTION_GROUP" }
+      ]
+    }
+  ]
+}

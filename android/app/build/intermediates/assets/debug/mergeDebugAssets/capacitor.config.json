@@ -1,0 +1,22 @@
+{
+	"appId": "com.conduiteaccompagnee.dev",
+	"appName": "Conduite DEV",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https"
+	},
+	"plugins": {
+		"FirebaseAuthentication": {
+			"skipNativeAuth": false,
+			"providers": [
+				"google.com"
+			]
+		},
+		"BackgroundGeolocation": {
+			"notificationTitle": "Session de conduite",
+			"notificationText": "Enregistrement GPS en cours",
+			"notificationChannelId": "conduite_gps_tracking",
+			"notificationChannelName": "Suivi GPS"
+		}
+	}
+}

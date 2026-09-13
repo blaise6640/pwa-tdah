@@ -1,0 +1,49 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "/assets/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/sendEmail",
+        "function": "sendEmail"
+      },
+      {
+        "source": "/createGitHubIssue",
+        "function": "createGitHubIssue"
+      },
+      {
+        "source": "/notificationTestHttp",
+        "function": "notificationTestHttp"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs20",
+    "predeploy": [],
+    "region": "europe-west1"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

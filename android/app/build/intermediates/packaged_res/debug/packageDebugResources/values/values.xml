@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <string name="app_name">Conduite DEV</string>
+    <string name="capacitor_background_geolocation_notification_icon">mipmap/ic_launcher</string>
+    <string name="custom_url_scheme">com.conduiteaccompagnee.dev</string>
+    <string name="default_web_client_id" translatable="false">162309420019-rb7kqr5div79e97jfu191tguj1proh2q.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">162309420019</string>
+    <string name="google_api_key" translatable="false">AIzaSyD0_9QasbovcWbAgRSnqP2QBHOKS5N75pA</string>
+    <string name="google_app_id" translatable="false">1:162309420019:android:7a3ee8957e2a6698875886</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD0_9QasbovcWbAgRSnqP2QBHOKS5N75pA</string>
+    <string name="google_storage_bucket" translatable="false">conduite-accompagnee-dev.firebasestorage.app</string>
+    <string name="package_name">com.conduiteaccompagnee.dev</string>
+    <string name="project_id" translatable="false">conduite-accompagnee-dev</string>
+    <string name="title_activity_main">Conduite DEV</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+    </style>
+    <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+        <item name="android:background">@drawable/splash</item>
+    </style>
+</resources>
